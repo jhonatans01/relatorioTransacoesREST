@@ -17,8 +17,8 @@ class CreateTriggers extends Migration
         CREATE TRIGGER createTransaction BEFORE INSERT ON `transactions`
         FOR EACH ROW
         BEGIN
-            SET @cardPayMethod := (SELECT id FROM `tef`.`card_payment` WHERE card_brand = NEW.card_brand AND payment_method=NEW.payment_method);
-		    SET @cardAcquirer := (SELECT acquirer FROM `tef`.`acquirer_card` WHERE acquirer = NEW.acquirer AND card_brand = NEW.card_brand);
+            SET @cardPayMethod := (SELECT id FROM `card_payment` WHERE card_brand = NEW.card_brand AND payment_method=NEW.payment_method);
+		    SET @cardAcquirer := (SELECT acquirer FROM `acquirer_card` WHERE acquirer = NEW.acquirer AND card_brand = NEW.card_brand);
 		
             IF (@cardPayMethod IS NULL OR @cardAcquirer IS NULL)
             THEN
