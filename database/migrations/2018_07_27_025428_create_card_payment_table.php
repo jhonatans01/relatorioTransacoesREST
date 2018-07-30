@@ -15,13 +15,13 @@ class CreateCardPaymentTable extends Migration
     {
         Schema::create('card_payment', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('cardBrand')->unsigned();
-            $table->foreign('cardBrand')->references('id')
+            $table->integer('card_brand')->unsigned();
+            $table->foreign('card_brand')->references('id')
                 ->on('card_brands')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
-            $table->integer('paymentMethod')->unsigned();
-            $table->foreign('paymentMethod')->references('id')
+            $table->integer('payment_method')->unsigned();
+            $table->foreign('payment_method')->references('id')
                 ->on('payment_methods')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');

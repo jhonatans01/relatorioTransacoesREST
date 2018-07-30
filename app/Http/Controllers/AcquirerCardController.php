@@ -9,32 +9,27 @@ class AcquirerCardController extends Controller
 {
     public function index()
     {
-        return AcquirerCard::with(['cardBrand', 'acquirer'])
-            ->get()
-            ->toJson(JSON_UNESCAPED_UNICODE);
+        return AcquirerCard::all()->toJson(JSON_UNESCAPED_UNICODE);
     }
 
-    public function show($id)
+    public function show($acquirerId, $cardBrandId)
     {
-        return AcquirerCard::find($id);
+        return AcquirerCard::where('acquirer', $acquirerId)
+            ->where('card_brand', $cardBrandId)
+            ->first();
     }
 
     public function store(Request $request)
     {
+        $request['card_brand'] = $request->card_brand['id'];
+        $request['acquirer'] = $request->acquirer['id'];
         return AcquirerCard::create($request->all());
     }
 
-    public function update(Request $request, $id)
+    public function delete(Request $request, $acquirerId, $cardBrandId)
     {
-        $acquirer = AcquirerCard::findOrFail($id);
-        $acquirer->update($request->all());
-
-        return $acquirer;
-    }
-
-    public function delete(Request $request, $id)
-    {
-        $acquirer = AcquirerCard::findOrFail($id);
+        $acquirer = AcquirerCard::where('acquirer', $acquirerId)
+            ->where('card_brand', $cardBrandId);
         $acquirer->delete();
 
         return 204;

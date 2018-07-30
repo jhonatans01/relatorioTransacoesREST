@@ -10,7 +10,7 @@ class Merchant extends Model
 
     public $incrementing = false;
 
-    protected $fillable = ['cpnj', 'companyName'];
+    protected $fillable = ['cnpj', 'companyName'];
 
     public $timestamps = false;
 }

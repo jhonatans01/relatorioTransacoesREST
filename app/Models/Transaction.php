@@ -7,20 +7,25 @@ use Illuminate\Database\Eloquent\Model;
 class Transaction extends Model
 {
     protected $fillable = ['id', 'checkoutCode', 'merchant', 'cipheredCardNumber', 'amountInCent',
-        'installments', 'acquirer', 'status', 'cardPayment', 'acquirerAuthorizationDateTime'];
+        'installments', 'acquirer', 'status', 'card_brand', 'payment_method', 'acquirerAuthorizationDateTime'];
 
-    #protected $timdateTimeFormat = ['createdAt', 'acquirerAuthorizationDateTime'];
+    protected $dateFormat = ['createdAt', 'acquirerAuthorizationDateTime'];
 
     public $timestamps = false;
 
     public function merchant()
     {
-        return $this->belongsTo('App\Merchant');
+        return $this->belongsTo('App\Merchant', 'merchant', 'cnpj');
     }
 
-    public function cardPayment()
+    public function cardBrand()
     {
-        return $this->hasOne('App\CardPayment', 'id', 'cardPayment');
+        return $this->hasOne('App\CardBrand', 'id', 'card_brand');
+    }
+
+    public function paymentMethod()
+    {
+        return $this->hasOne('App\PaymentMethod', 'id', 'payment_method');
     }
 
     public function acquirer()

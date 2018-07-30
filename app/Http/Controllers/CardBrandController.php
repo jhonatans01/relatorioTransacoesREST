@@ -14,7 +14,7 @@ class CardBrandController extends Controller
 
     public function show($id)
     {
-        return CardBrand::find($id);
+        return CardBrand::find($id)->toJson(JSON_UNESCAPED_UNICODE);
     }
 
     public function store(Request $request)

@@ -47,10 +47,9 @@ Route::group(['prefix'=>'cardBrands'], function(){
 
 Route::group(['prefix'=>'acquirerCards'], function(){
     Route::get('/', 'AcquirerCardController@index');
-    Route::get('/{id}', 'AcquirerCardController@show');
+    Route::get('/{acquirerId}/{cardBrandId}', 'AcquirerCardController@show');
     Route::post('/', 'AcquirerCardController@store');
-    Route::put('/edit/{id}', 'AcquirerCardController@update');
-    Route::delete('/delete/{id}', 'AcquirerCardController@delete');
+    Route::delete('/delete/{acquirerId}/{cardBrandId}', 'AcquirerCardController@delete');
 });
 
 Route::group(['prefix'=>'paymentMethods'], function(){

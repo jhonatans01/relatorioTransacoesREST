@@ -14,7 +14,7 @@ class PaymentMethodController extends Controller
 
     public function show($id)
     {
-        return PaymentMethod::find($id);
+        return PaymentMethod::find($id)->toJson(JSON_UNESCAPED_UNICODE);
     }
 
     public function store(Request $request)

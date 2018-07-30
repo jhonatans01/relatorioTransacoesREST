@@ -8,17 +8,17 @@ class AcquirerCard extends Model
 {
     public $table = 'acquirer_card';
 
-    protected $primaryKey = ['acquirer', 'cardBrand'];
+    protected $primaryKey = ['acquirer', 'card_brand'];
 
     public $incrementing = false;
 
-    protected $fillable = ['acquirer', 'cardBrand'];
+    protected $fillable = ['acquirer', 'card_brand'];
 
     public $timestamps = false;
 
     public function cardBrand()
     {
-        return $this->hasOne('App\CardBrand', 'id', 'cardBrand');
+        return $this->hasOne('App\CardBrand', 'id', 'card_brand');
     }
 
     public function acquirer()

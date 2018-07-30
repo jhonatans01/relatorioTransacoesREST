@@ -12,6 +12,6 @@ class CardBrand extends Model
 
     public function paymentMethods()
     {
-        return $this->hasMany('App\PaymentMethod');
+        return $this->belongsToMany('App\PaymentMethod', 'card_payment', 'card_brand', 'payment_method');
     }
 }

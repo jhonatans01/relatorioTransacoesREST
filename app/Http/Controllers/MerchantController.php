@@ -14,7 +14,7 @@ class MerchantController extends Controller
 
     public function show($id)
     {
-        return Merchant::find($id);
+        return Merchant::find($id)->toJson(JSON_UNESCAPED_UNICODE);
     }
 
     public function store(Request $request)

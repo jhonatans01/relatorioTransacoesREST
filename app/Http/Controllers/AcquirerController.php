@@ -9,12 +9,14 @@ class AcquirerController extends Controller
 {
     public function index()
     {
-        return Acquirer::all();
+        return Acquirer::all()
+            ->toJson(JSON_UNESCAPED_UNICODE);
     }
 
     public function show($id)
     {
-        return Acquirer::find($id);
+        return Acquirer::find($id)
+            ->toJson(JSON_UNESCAPED_UNICODE);
     }
 
     public function store(Request $request)

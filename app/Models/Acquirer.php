@@ -10,8 +10,8 @@ class Acquirer extends Model
 
     public $timestamps = false;
 
-    public function cardBrand()
+    public function cardBrands()
     {
-        return $this->hasMany('App\CardBrand');
+        return $this->belongsToMany('App\CardBrand', 'acquirer_card', 'acquirer', 'card_brand');
     }
 }

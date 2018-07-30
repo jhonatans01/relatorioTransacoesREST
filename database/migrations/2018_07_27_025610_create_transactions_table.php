@@ -25,9 +25,14 @@ class CreateTransactionsTable extends Migration
                 ->on('status')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
-            $table->integer('cardPayment')->unsigned();
-            $table->foreign('cardPayment')->references('id')
-                ->on('card_payment')
+            $table->integer('card_brand')->unsigned();
+            $table->foreign('card_brand')->references('id')
+                ->on('card_brands')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+            $table->integer('payment_method')->unsigned();
+            $table->foreign('payment_method')->references('id')
+                ->on('payment_methods')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
             $table->integer('acquirer')->unsigned();

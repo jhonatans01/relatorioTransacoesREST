@@ -19,11 +19,12 @@ class CreateAcquirerCardTable extends Migration
                 ->on('acquirers')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
-            $table->integer('cardBrand')->unsigned();
-            $table->foreign('cardBrand')->references('id')
+            $table->integer('card_brand')->unsigned();
+            $table->foreign('card_brand')->references('id')
                 ->on('card_brands')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
+            $table->primary(['acquirer', 'card_brand']);
         });
     }
 

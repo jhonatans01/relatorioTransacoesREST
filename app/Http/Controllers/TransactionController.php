@@ -11,11 +11,19 @@ class TransactionController extends Controller
     {
         $data = json_decode(request()->data, true);
 
-        $transaction = Transaction::with(['acquirer', 'cardPayment', 'status']);
+        $transaction = Transaction::with(['merchant', 'acquirer', 'cardBrand', 'paymentMethod', 'status']);
 
         if ($data) {
 
-            if ($data['dates']) {
+            if (isset($data['merchants'])) {
+                $merchantsCnpj = array();
+                foreach ($data['merchants'] as $merchant) {
+                    array_push($merchantsCnpj, $merchant['cnpj']);
+                }
+                $transaction->whereIn('merchant', $merchantsCnpj);
+            }
+
+            if (isset($data['dates'])) {
                 if (count($data['dates']) > 1) {
                     $transaction->whereBetween('createdAt', $data['dates']);
                 } else {
@@ -23,7 +31,7 @@ class TransactionController extends Controller
                 }
             }
 
-            if ($data['acquirers']) {
+            if (isset($data['acquirers'])) {
                 $acquirersId = array();
                 foreach ($data['acquirers'] as $acquirer) {
                     array_push($acquirersId, $acquirer['id']);
@@ -32,25 +40,23 @@ class TransactionController extends Controller
 
             }
 
-            if ($data['cardBrands']) {
+            if (isset($data['card_brands'])) {
                 $cardBrandsId = array();
-                foreach ($data['cardBrands'] as $cardBrand) {
+                foreach ($data['card_brands'] as $cardBrand) {
                     array_push($cardBrandsId, $cardBrand['id']);
                 }
-                $transaction->whereHas('cardPayment', function ($query) use ($cardBrandsId) {
-                    $query->whereIn('cardBrand', $cardBrandsId);
-                });
+                $transaction->whereIn('card_brand', $cardBrandsId);
             }
         }
 
-        return $transaction
-            ->get()
-            ->toJson(JSON_UNESCAPED_UNICODE);
+        return $transaction->get()->toJson(JSON_UNESCAPED_UNICODE);
     }
 
     public function show(Request $request, $id)
     {
-        return Transaction::find($id);
+        return Transaction::with(['merchant', 'acquirer', 'cardBrand', 'paymentMethod', 'status'])
+            ->find($id)
+            ->toJson(JSON_UNESCAPED_UNICODE);
     }
 
     public function store(Request $request)
@@ -58,34 +64,10 @@ class TransactionController extends Controller
         $request['status'] = $request->status['id'];
         $request['merchant'] = $request->merchant['cnpj'];
         $request['acquirer'] = $request->acquirer['id'];
-        $request['cardPayment'] = $request->cardPayment['id'];
+        $request['card_brand'] = $request->card_brand['id'];
+        $request['payment_method'] = $request->payment_method['id'];
 
         return Transaction::create($request->all());
-    }
-
-    public function update(Request $request, $id)
-    {
-        if ($request->status['id']) {
-            $request['status'] = $request->status['id'];
-        }
-
-        if ($request->merchant['cnpj']) {
-            $request['merchant'] = $request->merchant['cnpj'];
-        }
-
-        if ($request->acquirer['id']) {
-            $request['acquirer'] = $request->acquirer['id'];
-
-        }
-
-        if ($request->cardPayment['id']) {
-            $request['cardPayment'] = $request->cardPayment['id'];
-        }
-
-        $transaction = Transaction::findOrFail($id);
-        $transaction->update($request->all());
-
-        return $transaction;
     }
 
     public function delete(Request $request, $id)

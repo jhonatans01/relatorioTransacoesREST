@@ -14,7 +14,7 @@ class StatusController extends Controller
 
     public function show($id)
     {
-        return Status::find($id);
+        return Status::find($id)->toJson(JSON_UNESCAPED_UNICODE);
     }
 
     public function store(Request $request)
