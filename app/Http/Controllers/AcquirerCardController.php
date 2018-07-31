@@ -9,7 +9,9 @@ class AcquirerCardController extends Controller
 {
     public function index()
     {
-        return AcquirerCard::all()->toJson(JSON_UNESCAPED_UNICODE);
+        return AcquirerCard::with('acquirer', 'cardBrand')
+            ->get()
+            ->toJson(JSON_UNESCAPED_UNICODE);
     }
 
     public function show($acquirerId, $cardBrandId)

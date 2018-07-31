@@ -14,7 +14,7 @@ class CardPayment extends Model
 
     public $timestamps = false;
 
-    public function cardBrands()
+    public function cardBrand()
     {
         return $this->hasOne('App\CardBrand', 'id', 'card_brand');
     }

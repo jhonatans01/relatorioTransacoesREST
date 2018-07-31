@@ -9,7 +9,7 @@ class CardPaymentController extends Controller
 {
     public function index()
     {
-        return CardPayment::all()->toJson(JSON_UNESCAPED_UNICODE);
+        return CardPayment::with('cardBrand', 'paymentMethod')->get()->toJson(JSON_UNESCAPED_UNICODE);
     }
 
     public function show($id)

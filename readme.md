@@ -25,18 +25,18 @@ php artisan migrate:refresh --seed
 Basicamente, as rotas definidas são:
 
 ```
-GET /api/nomeEntidade/
+GET /api/nomeEntidade
 GET /api/nomeEntidade/id
-POST /api/nomeEntidade/
+POST /api/nomeEntidade
 PUT /api/nomeEntidade/edit/id
 DELETE /api/nomeEntidade/delete/id
 ```
 
-Porém, há casos de rotas mais específicas, tal como a busca de transações por cnpj do lojista, data, bandeira ou adquirente. Para tanto, recomenda-se verificar o arquivo `/routes/api.php`, que contém todas as rotas disponíveis. É possíver ver as rotas nos testes também, em `/tests/Feature/`.
+Porém, há casos de rotas mais específicas, tal como a busca de transações por cnpj do lojista, data, bandeira ou adquirente. Para tanto, recomenda-se verificar o arquivo `/routes/api.php`, que contém todas as rotas disponíveis.
 
 Atenção:
 
-> Copiar também, para a pasta do servidor, o arquivo `.htaccess` presente na pasta raiz do projeto. Caso contrário, deve ser adicionado, no início das rotas, a pasta 'public', ficando da seguinte forma: `public/api/nome_da_entidade`
+> Copiar também, para a pasta do servidor, o arquivo `.htaccess` presente na pasta raiz do projeto. Caso contrário, deve ser adicionado, no início das rotas, a pasta 'public', ficando da seguinte forma: `public/api/nomeEntidade`
 
 ## Estrutura das Requisições
 
@@ -107,6 +107,9 @@ Atenção:
 "acquirerAuthorizationDateTime" : ""
 }
 ```
+Atenção:
+>  Uma transação é inserida no banco de dados apenas se o metódo de pagamento estiver cadastrado como disponível para a bandeira, conforme "api/cardPayments", e se a bandeira for aceita pelo adquirente, conforme "api/acquirerCards".
+ 
 ## Busca dos relatórios
 
 A busca mais simples é por 'id', ficando da seguinte forma:
@@ -123,7 +126,7 @@ Para busca mais elaborada, deve ser criado um JSON e adicionado à rota com o no
 O JSON deve ser estruturado da seguinte forma:
 ```
 {
-"merchants" : [{"cnpj":"", "companyName":""}, {"cnpj":"", "companyName":""}],
+"merchants" : [{"cnpj":"", "companyName":""}, {"cnpj":"", ...} ...],
 "acquirers" : [{"id": "", "name": ""}, {"id": "", ...} ...],
 "card_brands" : [{"id": "", "name": ""}, {"id": "", ...} ...],
 "payment_methods" : [{"id": "type": ""}, {"id": "", ...} ...]

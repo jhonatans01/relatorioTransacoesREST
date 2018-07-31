@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1532986200">
-  <project timestamp="1532986200">
+<coverage generated="1533009209">
+  <project timestamp="1533009209">
     <package name="App\Console">
       <file name="/Applications/XAMPP/xamppfiles/htdocs/app/Console/Kernel.php">
         <class name="App\Console\Kernel" namespace="App\Console">
@@ -31,24 +31,26 @@
     <package name="App\Http\Controllers">
       <file name="/Applications/XAMPP/xamppfiles/htdocs/app/Http/Controllers/AcquirerCardController.php">
         <class name="App\Http\Controllers\AcquirerCardController" namespace="App\Http\Controllers">
-          <metrics complexity="4" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="11" coveredstatements="11" elements="15" coveredelements="15"/>
+          <metrics complexity="4" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="13" coveredstatements="13" elements="17" coveredelements="17"/>
         </class>
         <line num="10" type="method" name="index" visibility="public" complexity="1" crap="1" count="1"/>
         <line num="12" type="stmt" count="1"/>
-        <line num="15" type="method" name="show" visibility="public" complexity="1" crap="1" count="1"/>
-        <line num="17" type="stmt" count="1"/>
-        <line num="18" type="stmt" count="1"/>
+        <line num="13" type="stmt" count="1"/>
+        <line num="14" type="stmt" count="1"/>
+        <line num="17" type="method" name="show" visibility="public" complexity="1" crap="1" count="1"/>
         <line num="19" type="stmt" count="1"/>
-        <line num="22" type="method" name="store" visibility="public" complexity="1" crap="1" count="1"/>
-        <line num="24" type="stmt" count="1"/>
-        <line num="25" type="stmt" count="1"/>
+        <line num="20" type="stmt" count="1"/>
+        <line num="21" type="stmt" count="1"/>
+        <line num="24" type="method" name="store" visibility="public" complexity="1" crap="1" count="1"/>
         <line num="26" type="stmt" count="1"/>
-        <line num="29" type="method" name="delete" visibility="public" complexity="1" crap="1" count="1"/>
-        <line num="31" type="stmt" count="1"/>
-        <line num="32" type="stmt" count="1"/>
+        <line num="27" type="stmt" count="1"/>
+        <line num="28" type="stmt" count="1"/>
+        <line num="31" type="method" name="delete" visibility="public" complexity="1" crap="1" count="1"/>
         <line num="33" type="stmt" count="1"/>
+        <line num="34" type="stmt" count="1"/>
         <line num="35" type="stmt" count="1"/>
-        <metrics loc="37" ncloc="37" classes="1" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="11" coveredstatements="11" elements="15" coveredelements="15"/>
+        <line num="37" type="stmt" count="1"/>
+        <metrics loc="39" ncloc="39" classes="1" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="13" coveredstatements="13" elements="17" coveredelements="17"/>
       </file>
       <file name="/Applications/XAMPP/xamppfiles/htdocs/app/Http/Controllers/AcquirerController.php">
         <class name="App\Http\Controllers\AcquirerController" namespace="App\Http\Controllers">
@@ -331,13 +333,13 @@
       </file>
       <file name="/Applications/XAMPP/xamppfiles/htdocs/app/Models/AcquirerCard.php">
         <class name="App\AcquirerCard" namespace="App">
-          <metrics complexity="2" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="0" elements="4" coveredelements="0"/>
+          <metrics complexity="2" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
         </class>
-        <line num="19" type="method" name="cardBrand" visibility="public" complexity="1" crap="2.00" count="0"/>
-        <line num="21" type="stmt" count="0"/>
-        <line num="24" type="method" name="acquirer" visibility="public" complexity="1" crap="2.00" count="0"/>
-        <line num="26" type="stmt" count="0"/>
-        <metrics loc="28" ncloc="28" classes="1" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="0" elements="4" coveredelements="0"/>
+        <line num="19" type="method" name="cardBrand" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="21" type="stmt" count="1"/>
+        <line num="24" type="method" name="acquirer" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="26" type="stmt" count="1"/>
+        <metrics loc="28" ncloc="28" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
       </file>
       <file name="/Applications/XAMPP/xamppfiles/htdocs/app/Models/CardBrand.php">
         <class name="App\CardBrand" namespace="App">
@@ -349,13 +351,13 @@
       </file>
       <file name="/Applications/XAMPP/xamppfiles/htdocs/app/Models/CardPayment.php">
         <class name="App\CardPayment" namespace="App">
-          <metrics complexity="2" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="0" elements="4" coveredelements="0"/>
+          <metrics complexity="2" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
         </class>
-        <line num="17" type="method" name="cardBrands" visibility="public" complexity="1" crap="2.00" count="0"/>
-        <line num="19" type="stmt" count="0"/>
-        <line num="22" type="method" name="paymentMethod" visibility="public" complexity="1" crap="2.00" count="0"/>
-        <line num="24" type="stmt" count="0"/>
-        <metrics loc="26" ncloc="26" classes="1" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="0" elements="4" coveredelements="0"/>
+        <line num="17" type="method" name="cardBrand" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="19" type="stmt" count="1"/>
+        <line num="22" type="method" name="paymentMethod" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="24" type="stmt" count="1"/>
+        <metrics loc="26" ncloc="26" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
       </file>
       <file name="/Applications/XAMPP/xamppfiles/htdocs/app/Models/Merchant.php">
         <class name="App\Merchant" namespace="App">
@@ -458,6 +460,6 @@
         <metrics loc="73" ncloc="38" classes="1" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="14" coveredstatements="14" elements="18" coveredelements="18"/>
       </file>
     </package>
-    <metrics files="34" loc="1182" ncloc="912" classes="26" methods="70" coveredmethods="53" conditionals="0" coveredconditionals="0" statements="167" coveredstatements="136" elements="237" coveredelements="189"/>
+    <metrics files="34" loc="1184" ncloc="914" classes="26" methods="70" coveredmethods="57" conditionals="0" coveredconditionals="0" statements="169" coveredstatements="142" elements="239" coveredelements="199"/>
   </project>
 </coverage>
