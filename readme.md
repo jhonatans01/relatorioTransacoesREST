@@ -50,12 +50,10 @@ Atenção:
 ### AcquirerCard
 ```
 {
-"acquirer" : "",
-"card_brand" : ""
+"acquirer" : {"id" : "", "name" : ""},
+"card_brand" : {"id" : "", "name" : ""}
 }
 ```
-- "acquirer" = acquirers.id
-- "card_brand" = "card_brands.id"
 
 ### PaymentMethod
 ```
@@ -67,14 +65,10 @@ Atenção:
 ### CardPayment
 ```
 {
-"card_brand" : "",
-"payment_method" : ""
+"card_brand" : {"id" : "", "name" : ""},
+"payment_method" : {"id" : "", "type" : ""}
 }
 ```
-
-- "card_brand" = "card_brands.id"
-- "payment_method" = payment_methods.id
-
 
 ### Status
 ```
@@ -96,14 +90,14 @@ Atenção:
 ```
 {
 "checkoutCode" : "",
-"merchant" : "",
+"merchant" : {"cnpj" : "", "companyName" : ""},
 "cipheredCardNumber" : "",
 "amountInCent" : "",
 "installments" : "",
-"acquirer" : "",
-"status" : "",
-"card_brand" : "",
-"payment_method" : "",
+"acquirer" : {"id" : "", "name" : ""},
+"status" : {"id" : "", "statusText" : "", "statusInfo" : ""},
+"card_brand" : {"id" : "", "name" : ""},
+"payment_method" : {"id" : "", "type" : ""},
 "acquirerAuthorizationDateTime" : ""
 }
 ```
